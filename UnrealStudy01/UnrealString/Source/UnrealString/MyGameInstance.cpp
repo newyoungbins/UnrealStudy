@@ -47,4 +47,13 @@ void UMyGameInstance::Init()
 	FString FloatIntString2 = FString::Printf(TEXT("Int:%d Float:%f"), IntValueFromString, FloatValueFromString);
 	UE_LOG(LogTemp, Log, TEXT("%s"), *FloatIntString2);
 
+	FName key1(TEXT("PELVIS"));
+	FName key2(TEXT("pelvis"));
+	UE_LOG(LogTemp, Log, TEXT("FName 비교 결과 : %s"), key1 == key2 ? TEXT("같음") : TEXT("다름"));
+
+	for (int i = 0; i < 10000; ++i)
+	{
+		FName SearchInNamePool = FName(TEXT("pelvis"));
+		const static FName StaticOnlyOnce(TEXT("pelvis"));
+	}
 }
